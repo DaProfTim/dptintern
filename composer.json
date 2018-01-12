@@ -1,0 +1,98 @@
+{
+    "name": "npoa/monitoring",
+    "license": "proprietary",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "": "src/"
+        },
+        "classmap": [
+            "app/AppKernel.php",
+            "app/AppCache.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "require": {
+        "php": ">=5.5.9",
+        "symfony/symfony": "3.2.*",
+        "symfony/swiftmailer-bundle": "^2.4",
+        "symfony/monolog-bundle": "^3.0",
+        "symfony/assetic-bundle": "^2.8",
+        "doctrine/orm": "^2.5",
+        "doctrine/doctrine-bundle": "^1.6",
+        "doctrine/doctrine-cache-bundle": "^1.3",
+        "doctrine/doctrine-migrations-bundle": "^1.2",
+        "doctrine/doctrine-fixtures-bundle": "^2.3",
+        "friendsofsymfony/jsrouting-bundle": "^1.6",
+        "sensio/distribution-bundle": "^5.0",
+        "sensio/framework-extra-bundle": "^3.0.2",
+        "defuse/php-passgen": "^1.0",
+        "simplethings/entity-audit-bundle": "^1.0",
+        "stof/doctrine-extensions-bundle": "^1.2.2",
+        "gedmo/doctrine-extensions" : "^2.4",
+        "incenteev/composer-parameter-handler": "^2.1",
+        "hautelook/alice-bundle": "^1.4",
+        "npoa/security-bundle": "0.4.*",
+        "npoa/extjs": "6.2.1",
+        "leafo/scssphp": "^0.6.6",
+        "jms/di-extra-bundle": "^1.8",
+        "lavary/crunz": "^1.4"
+    },
+    "require-dev": {
+        "sensio/generator-bundle": "^3.0",
+        "symfony/phpunit-bridge": "^3.0",
+        "phpro/grumphp": "^0.11.0",
+        "phpspec/phpspec": "^3.0",
+        "friendsofphp/php-cs-fixer": "^2.1",
+        "squizlabs/php_codesniffer": "*",
+        "phpunit/phpunit": "^5.7",
+        "liuggio/fastest": "~1.4",
+        "liip/functional-test-bundle": "^1.7",
+        "phpstan/phpstan": "^0.6.4"
+    },
+    "scripts": {
+        "symfony-scripts": [
+            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget"
+        ],
+        "post-install-cmd": [
+            "@symfony-scripts"
+        ],
+        "post-update-cmd": [
+            "@symfony-scripts"
+        ]
+    },
+    "extra": {
+        "symfony-app-dir": "app",
+        "symfony-bin-dir": "bin",
+        "symfony-var-dir": "var",
+        "symfony-web-dir": "web",
+        "symfony-tests-dir": "tests",
+        "symfony-assets-install": "relative",
+        "incenteev-parameters": {
+            "file": "app/config/parameters.yml"
+        }
+    },
+    "repositories": [
+        {
+            "type": "git",
+            "url": "https://deploy:ScU5u7%24TQv9%5Ey6CGq7v%26QtAg%24qwCCRUkX%25*%5Ek2%26M6HP%5EeM%23cpy*MPgJs67mF%24a5%40@bitbucket.npo-applications.de/scm/nsec/repo.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://deploy:ScU5u7%24TQv9%5Ey6CGq7v%26QtAg%24qwCCRUkX%25*%5Ek2%26M6HP%5EeM%23cpy*MPgJs67mF%24a5%40@bitbucket.npo-applications.de/scm/nsec/installer.git"
+        },
+        {
+            "type": "git",
+            "url": "https://deploy:ScU5u7%24TQv9%5Ey6CGq7v%26QtAg%24qwCCRUkX%25*%5Ek2%26M6HP%5EeM%23cpy*MPgJs67mF%24a5%40@bitbucket.npo-applications.de/scm/ext/sdks.git"
+        }
+    ]
+}

@@ -1,0 +1,52 @@
+# To get started with security, check out the documentation:
+# http://symfony.com/doc/current/book/security.html
+security:
+    acl:
+        connection: default
+    encoders:
+        Symfony\Component\Security\Core\User\User:
+            algorithm: bcrypt
+            cost: 12
+        AppBundle\Entity\AccessControl\Benutzer:
+            algorithm: bcrypt
+            cost: 12
+        Npoa\SecurityBundle\Entity\User:
+            algorithm: bcrypt
+            cost: 12
+
+    # http://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
+    providers:
+        main:
+            entity:
+                class: AppBundle\Entity\AccessControl\Benutzer
+                property: benutzername
+        npoa_security:
+            entity:
+                class: Npoa\SecurityBundle\Entity\User
+
+    firewalls:
+        # disables authentication for assets and the profiler, adapt it according to your needs
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js|fonts|bundles|media/cache/resolve)/
+            security: false
+        npoa_security:
+            pattern: ^/_npoa_security
+            anonymous: ~
+            form_login:
+                csrf_token_generator: security.csrf.token_manager
+                login_path: npoa_security_auth_login
+                check_path: npoa_security_auth_login
+                default_target_path: npoa_security_index
+                use_referer: true
+                provider: npoa_security
+        default:
+            pattern: ^/*
+            anonymous: ~
+            form_login:
+                login_path: "%login_path%"
+                check_path: login_check
+                success_handler: auth_handler
+                failure_handler: auth_handler
+                default_target_path: index
+                use_referer: true
+                provider: main

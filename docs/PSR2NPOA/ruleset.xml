@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<ruleset name="NpoaStandard">
+    <description>Coding Standard for NPO Applications.</description>
+    <!-- Include the whole PSR-2 standard -->
+    <rule ref="PSR2">
+        <!-- to disable a single error -->
+    </rule>
+    <rule ref="Generic.Files.LineLength">
+		<properties>
+			<property name="lineLimit" value="200"/>
+		    <property name="absoluteLineLimit" value="0"/>
+		</properties>
+	</rule>
+</ruleset>

@@ -1,0 +1,16 @@
+npoa_security:
+    resource: "@NpoaSecurityBundle/Controller/"
+    type:     annotation
+    prefix:   /_npoa_security/
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
+
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
+
+login_check:
+    path: /login_check
+    options:
+        expose: true

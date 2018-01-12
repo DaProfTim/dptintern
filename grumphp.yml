@@ -1,0 +1,16 @@
+parameters:
+    git_dir: .
+    bin_dir: vendor/bin
+    hide_circumvention_tip: true
+    tasks:
+        phpcs:
+            standard: docs/PSR2NPOA
+            show_warnings: true
+            tab_width: ~
+            whitelist_patterns:
+                - /^src\/(.*)/
+                - /^test\/(.*)/
+            encoding: UTF-8
+            ignore_patterns: []
+            sniffs: []
+            triggered_by: [php]

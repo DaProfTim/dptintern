@@ -1,0 +1,127 @@
+imports:
+    - { resource: parameters.yml }
+    - { resource: security.yml }
+    - { resource: services.yml }
+    - { resource: audited_entities.yml }
+
+# Put parameters here that don't need to change on each machine where the app is deployed
+# http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
+parameters:
+    locale: de
+    session.attribute_bag.class: Symfony\Component\HttpFoundation\Session\Attribute\NamespacedAttributeBag
+    jms_serializer.serialized_name_annotation_strategy.class: JMS\Serializer\Naming\IdenticalPropertyNamingStrategy
+    login_path: index
+    csrf_token_id: npo
+
+npoa_security:
+    login_path: "%login_path%"
+    user_entity: AppBundle:AccessControl\Benutzer
+    role_entity:
+        name: AppBundle:AccessControl\Rolle
+        name_field: name
+        descr_field: beschreibung
+
+framework:
+    #esi:             ~
+    translator:      { fallbacks: ["%locale%"] }
+    secret:          "%secret%"
+    router:
+        resource: "%kernel.root_dir%/config/routing.yml"
+        strict_requirements: ~
+    form:            ~
+    csrf_protection: true
+    validation:      { enable_annotations: true }
+    #serializer:      { enable_annotations: true }
+    templating:
+        engines: ['twig']
+    default_locale:  "%locale%"
+    trusted_hosts:   ~
+    trusted_proxies: ~
+    session:
+        # http://symfony.com/doc/current/reference/configuration/framework.html#handler-id
+        handler_id: session.handler.pdo
+        cookie_lifetime: 36000
+        gc_maxlifetime: 36000
+        cookie_httponly: false
+    fragments:       ~
+    http_method_override: true
+    assets: ~
+
+# Twig Configuration
+twig:
+    debug:            "%kernel.debug%"
+    strict_variables: "%kernel.debug%"
+
+# Doctrine Configuration
+doctrine:
+    dbal:
+        driver:   pdo_mysql
+        host:     "%database_host%"
+        port:     "%database_port%"
+        dbname:   "%database_name%"
+        user:     "%database_user%"
+        password: "%database_password%"
+        charset:  UTF8
+    orm:
+        auto_generate_proxy_classes: "%kernel.debug%"
+        naming_strategy: doctrine.orm.naming_strategy.underscore
+        auto_mapping: true
+        default_repository_class: AppBundle\Entity\DefaultRepository
+        metadata_cache_driver:
+            type: service
+            id: file_cache
+        result_cache_driver:
+            type: service
+            id: file_cache
+        query_cache_driver:
+            type: service
+            id: file_cache
+
+stof_doctrine_extensions:
+    default_locale: de_DE
+    orm:
+        default:
+            timestampable:  true
+            blameable:      true
+
+doctrine_cache:
+    providers:
+        file_cache:
+            file_system:
+                extension: cache
+                directory: '%kernel.cache_dir%'
+            namespace: file_cache_ns
+            aliases:
+              - file_cache
+
+doctrine_migrations:
+      dir_name:   "%kernel.root_dir%/DoctrineMigrations"
+      namespace:  Application\Migrations
+      table_name: migration_versions
+      name:       Application Migrations
+
+# Swiftmailer Configuration
+swiftmailer:
+    transport: "%mailer_transport%"
+    host:      "%mailer_host%"
+    username:  "%mailer_user%"
+    password:  "%mailer_password%"
+    encryption: "%mailer_encryption%"
+    spool:     { type: memory }
+
+assetic:
+    debug:          '%kernel.debug%'
+    use_controller: false
+    bundles:
+        - AppBundle
+    filters:
+        cssrewrite: ~
+        jsqueeze: ~
+        scssphp:
+            formatter: 'Leafo\ScssPhp\Formatter\Compressed'
+
+jms_di_extra:
+    locations:
+        all_bundles: false
+        bundles: [AppBundle]
+        directories: ["%kernel.root_dir%/../src"]

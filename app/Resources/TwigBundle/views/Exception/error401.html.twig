@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="de">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta charset="UTF-8">
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=10, user-scalable=yes">
+        <title>Da ist etwas schief gegangen!</title>
+
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('css/errorpage.css') }}" />
+         {% endblock %}
+    </head>
+    <body>
+        {% block body %}
+
+            <div id="wrapper">
+                <div id="wrapper_inner">
+                    <div id="content">
+                        <h1>Loginfehler</h1>
+
+                        <p class="error">
+                            Sie müssen eingeloggt sein, um auf diese Seite zuzugreifen.
+                            <a href="{{ path('index') }}">Klicken Sie hier, um zurück zur Startseite zu gelangen</a>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        {% endblock %}
+    </body>
+</html>

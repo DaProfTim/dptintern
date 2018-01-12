@@ -1,0 +1,7 @@
+AppBundle\Entity\AccessControl\Rolle:
+    rolleBenutzer:
+        name: ROLE_BENUTZER
+        beschreibung: Benutzer
+    rolleFachadmin:
+        name: ROLE_FACHADMIN
+        beschreibung: Fachadministrator

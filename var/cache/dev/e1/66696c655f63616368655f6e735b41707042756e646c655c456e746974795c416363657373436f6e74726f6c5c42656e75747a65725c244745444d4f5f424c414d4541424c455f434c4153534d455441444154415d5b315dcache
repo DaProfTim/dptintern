@@ -1,0 +1,2 @@
+
+a:3:{s:6:"create";a:1:{i:0;s:9:"createdBy";}s:6:"update";a:1:{i:0;s:9:"updatedBy";}s:14:"useObjectClass";s:39:"AppBundle\Entity\AccessControl\Benutzer";}

@@ -1,0 +1,23 @@
+language: php
+
+php: [5.6, 7.0, hhvm]
+
+matrix:
+  allow_failures:
+    - php: hhvm
+  fast_finish: true
+
+cache:
+  directories:
+    - $HOME/.composer/cache
+
+before_script:
+  - composer selfupdate
+  - composer install
+
+script:
+  - find tests/ -name "*Test.php" | php fastest -v
+  - bin/behat --config=adapters/Behat2/behat.yml
+  - composer require --dev "behat/behat:~3.1" --no-update # update the Behat version.
+  - composer update
+  - bin/behat --config=adapters/Behat/behat.yml

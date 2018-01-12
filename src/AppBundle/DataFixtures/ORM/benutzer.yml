@@ -1,0 +1,15 @@
+AppBundle\Entity\AccessControl\Benutzer:
+    benutzer:
+        istAktiv: true
+        benutzername: benutzer@npoa.de
+        email: benutzer@npoa.de
+        passwort: $2y$12$5Fl6Mc3n7/YHNvW5Z6BJzOWJMQsuWWhBSg/wJfuGzkvF981tcnPz.
+        rolle:
+            - '@rolleBenutzer'
+    fachadmin:
+        istAktiv: true
+        benutzername: admin@npoa.de
+        email: admin@npoa.de
+        passwort: $2y$12$5Fl6Mc3n7/YHNvW5Z6BJzOWJMQsuWWhBSg/wJfuGzkvF981tcnPz.
+        rolle:
+            - '@rolleFachadmin'

@@ -1,0 +1,27 @@
+{# Unterstuetzt in der aktuellen Form maximal 2-dimensionalen Array #}
+
+{% set options = app.session.get('ext') %}
+<script type="text/javascript">
+    AppConfig = {
+
+        {% for key, option in options %}
+            {% if option is iterable %}
+                {% for sub_key, sub_option in option %}
+                    {{ sub_key }}: '{{ sub_option|raw }}',
+                {% endfor %}
+            {% else %}
+                    {{ key }}: '{{ option|raw }}',
+            {% endif %}
+        {% endfor %}
+
+        {% for label, flashes in app.session.flashbag.all %}
+            {% for flash in flashes %}
+                {{ label }}: '{{ flash|raw }}',
+            {% endfor %}
+        {% endfor %}
+
+        {# Twig Variablen, die in ExtJS zur Verfuegung stehen sollen, muessen hier manuell hinzugefuegt werden #}
+        {# idealerweise findet irgendwer irgendwann irgendwie einen Weg diese automatisch zu adden #}
+
+    }
+</script>

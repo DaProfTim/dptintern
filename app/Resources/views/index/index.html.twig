@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+{% if app.environment == 'dev' %}
+    <html lang="{{ app.request.locale }}">
+{% elseif app.environment == 'prod' %}
+    <html lang="{{ app.request.locale }}">
+{% endif %}
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="UTF-8">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=10, user-scalable=yes">
+    <title>{% block title %}{{ title | default("") }}{% endblock %}</title>
+
+    {% block stylesheets %}
+        {% stylesheets output='css/dist/app.css'
+            'css/app.css' filter='cssrewrite,scssphp' %}
+            <link rel="stylesheet" href="{{ asset_url }}" />
+        {% endstylesheets %}
+    {% endblock %}
+
+    {% block scripts %}
+        <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+        <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
+        <script type="text/javascript">
+            var Ext = Ext || {}; // Ext namespace won't be defined yet...
+
+            // This function is called by the Microloader after it has performed basic
+            // device detection. The results are provided in the "tags" object. You can
+            // use these tags here or even add custom tags. These can be used by platform
+            // filters in your manifest or by platformConfig expressions in your app.
+            //
+            Ext.beforeLoad = function (tags) {
+                Ext.manifest = 'classic';
+                Ext.manifest = '/ext-app/{% if app.environment == 'dev' %}{% else %}build/production/NpoaApp/{% endif %}' + Ext.manifest;
+            };
+        </script>
+        {% block extjs_config %}
+            {% include 'extjs/config.html.twig' %}
+        {% endblock %}
+        {% if app.environment == 'dev' %}
+            <script id="microloader" data-app="606908e1-2218-4105-a24e-7ed5b71ade66" type="text/javascript" src="{{ asset('ext-app/bootstrap.js') }}"></script>
+        {% elseif app.environment == 'prod' %}
+            <script id="microloader" data-app="606908e1-2218-4105-a24e-7ed5b71ade66" type="text/javascript" src="{{ asset('ext-app/build/production/NpoaApp/microloader.js') }}"></script>
+        {% endif %}
+    {% endblock %}
+</head>
+<body>
+
+{% block body %}
+    <div id="loadingAnimation">
+        <img src="{{ asset('images/npoa_logo.png') }}" />
+        <p>{{ 'global.please_wait'|trans }}</p>
+    </div>
+{% endblock %}
+
+{{ getExtJsSecurityConfig() }}
+
+{{ getSecurityConfigNotifier() }}
+
+</body>
+</html>

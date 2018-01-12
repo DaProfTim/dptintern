@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" id="base" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="24px" height="24px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
+    <ellipse fill="#FFFFFF" cx="15.1" cy="13.4" rx="1.4" ry="2.1"/>
+    <ellipse fill="#FFFFFF" cx="8.9" cy="13.4" rx="1.4" ry="2.1"/>
+    <ellipse fill="#FFFFFF" cx="8.9" cy="13.4" rx="1.4" ry="2.1"/>
+    <path fill="#FFFFFF" d="M16.4,7.2C18.4,2.7,12,0.8,12,0.8c-0.3,2.8-2.4,5-3.9,6.1c-2.8,1.4-4.6,4.3-4.6,7.6c0,4.7,3.8,8.5,8.5,8.5
+			s8.5-3.8,8.5-8.5C20.5,11.4,18.8,8.7,16.4,7.2z M12,21.6c-3.9,0-7.1-3.2-7.1-7.1S8.1,7.4,12,7.4c3.9,0,7.1,3.2,7.1,7.1
+			S15.9,21.6,12,21.6z"/>
+    <path fill="#FFFFFF" d="M9,17.5c0,1.1,1.4,2,3,2c1.7,0,3-0.9,3-2c0,0.2-1.4,0.5-3.1,0.5C10.3,18,9,17.7,9,17.5"/>
+</svg>

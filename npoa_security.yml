@@ -1,0 +1,153 @@
+controller_action_permissions:
+    'AppBundle\Controller\BenutzerController::confirmAction':
+        - IS_AUTHENTICATED_ANONYMOUSLY
+        - ROLE_BENUTZER
+        - ROLE_FACHADMIN
+    'AppBundle\Controller\BenutzerController::deleteAction':
+        - ROLE_FACHADMIN
+    'AppBundle\Controller\BenutzerController::getOwnAction':
+        - ROLE_BENUTZER
+        - ROLE_FACHADMIN
+    'AppBundle\Controller\BenutzerController::logoutAction':
+        - ROLE_BENUTZER
+        - ROLE_FACHADMIN
+    'AppBundle\Controller\BenutzerController::sendResetTokenAction':
+        - IS_AUTHENTICATED_ANONYMOUSLY
+        - ROLE_BENUTZER
+        - ROLE_FACHADMIN
+    'AppBundle\Controller\BenutzerController::setPasswordCheckAction':
+        - ROLE_BENUTZER
+        - ROLE_FACHADMIN
+    'AppBundle\Controller\BenutzerController::setTmpEmailAction':
+        - ROLE_BENUTZER
+        - ROLE_FACHADMIN
+    'AppBundle\Controller\BenutzerController::updateAction':
+        - ROLE_FACHADMIN
+    'AppBundle\Controller\IndexController::indexAction':
+        - IS_AUTHENTICATED_ANONYMOUSLY
+        - ROLE_BENUTZER
+        - ROLE_FACHADMIN
+    'AppBundle\Controller\IndexController::logoutAction':
+        - IS_AUTHENTICATED_ANONYMOUSLY
+        - ROLE_BENUTZER
+        - ROLE_FACHADMIN
+entity_permissions:
+    AppBundle\Entity\AccessControl\Benutzer:
+        AppBundle\Entity\AccessControl\Benutzer:
+            ROLE_FACHADMIN: 5
+            ROLE_BENUTZER: 1
+            IS_AUTHENTICATED_ANONYMOUSLY: 1
+        id:
+            ROLE_FACHADMIN: 5
+            ROLE_BENUTZER: 1
+            IS_AUTHENTICATED_ANONYMOUSLY: 0
+        istAktiv:
+            ROLE_FACHADMIN: 5
+            ROLE_BENUTZER: 1
+            IS_AUTHENTICATED_ANONYMOUSLY: 0
+        ersterLogin:
+            ROLE_FACHADMIN: 5
+            ROLE_BENUTZER: 1
+            IS_AUTHENTICATED_ANONYMOUSLY: 0
+        ablaufdatum:
+            ROLE_FACHADMIN: 5
+            ROLE_BENUTZER: 1
+            IS_AUTHENTICATED_ANONYMOUSLY: 0
+        benutzername:
+            ROLE_FACHADMIN: 5
+            ROLE_BENUTZER: 1
+            IS_AUTHENTICATED_ANONYMOUSLY: 0
+        loginVersuche:
+            ROLE_FACHADMIN: 5
+            ROLE_BENUTZER: 1
+            IS_AUTHENTICATED_ANONYMOUSLY: 0
+        loginSperrdatum:
+            ROLE_FACHADMIN: 5
+            ROLE_BENUTZER: 1
+            IS_AUTHENTICATED_ANONYMOUSLY: 0
+        email:
+            ROLE_FACHADMIN: 5
+            ROLE_BENUTZER: 1
+            IS_AUTHENTICATED_ANONYMOUSLY: 0
+        passwort:
+            ROLE_FACHADMIN: 5
+            ROLE_BENUTZER: 1
+            IS_AUTHENTICATED_ANONYMOUSLY: 0
+        resetToken:
+            ROLE_FACHADMIN: 5
+            ROLE_BENUTZER: 1
+            IS_AUTHENTICATED_ANONYMOUSLY: 0
+        emailTmp:
+            ROLE_FACHADMIN: 5
+            ROLE_BENUTZER: 1
+            IS_AUTHENTICATED_ANONYMOUSLY: 0
+        vorname:
+            ROLE_FACHADMIN: 5
+            ROLE_BENUTZER: 1
+            IS_AUTHENTICATED_ANONYMOUSLY: 0
+        nachname:
+            ROLE_FACHADMIN: 5
+            ROLE_BENUTZER: 1
+            IS_AUTHENTICATED_ANONYMOUSLY: 0
+        geschlecht:
+            ROLE_FACHADMIN: 5
+            ROLE_BENUTZER: 1
+            IS_AUTHENTICATED_ANONYMOUSLY: 0
+        createdBy:
+            ROLE_FACHADMIN: 5
+            ROLE_BENUTZER: 1
+            IS_AUTHENTICATED_ANONYMOUSLY: 0
+        updatedBy:
+            ROLE_FACHADMIN: 5
+            ROLE_BENUTZER: 1
+            IS_AUTHENTICATED_ANONYMOUSLY: 0
+        createdAt:
+            ROLE_FACHADMIN: 5
+            ROLE_BENUTZER: 1
+            IS_AUTHENTICATED_ANONYMOUSLY: 0
+        updatedAt:
+            ROLE_FACHADMIN: 5
+            ROLE_BENUTZER: 1
+            IS_AUTHENTICATED_ANONYMOUSLY: 0
+        rolle:
+            ROLE_FACHADMIN: 5
+            ROLE_BENUTZER: 1
+            IS_AUTHENTICATED_ANONYMOUSLY: 0
+    AppBundle\Entity\AccessControl\Rolle:
+        AppBundle\Entity\AccessControl\Rolle:
+            ROLE_FACHADMIN: 5
+            ROLE_BENUTZER: 1
+            IS_AUTHENTICATED_ANONYMOUSLY: 1
+        id:
+            ROLE_FACHADMIN: 5
+            ROLE_BENUTZER: 1
+            IS_AUTHENTICATED_ANONYMOUSLY: 1
+        name:
+            ROLE_FACHADMIN: 5
+            ROLE_BENUTZER: 1
+            IS_AUTHENTICATED_ANONYMOUSLY: 1
+        beschreibung:
+            ROLE_FACHADMIN: 5
+            ROLE_BENUTZER: 1
+            IS_AUTHENTICATED_ANONYMOUSLY: 1
+    AppBundle\Entity\AccessControl\Session:
+        AppBundle\Entity\AccessControl\Session:
+            ROLE_FACHADMIN: 5
+            ROLE_BENUTZER: 5
+            IS_AUTHENTICATED_ANONYMOUSLY: 5
+        sessId:
+            ROLE_FACHADMIN: 5
+            ROLE_BENUTZER: 5
+            IS_AUTHENTICATED_ANONYMOUSLY: 5
+        sessData:
+            ROLE_FACHADMIN: 5
+            ROLE_BENUTZER: 5
+            IS_AUTHENTICATED_ANONYMOUSLY: 5
+        sessTime:
+            ROLE_FACHADMIN: 5
+            ROLE_BENUTZER: 5
+            IS_AUTHENTICATED_ANONYMOUSLY: 5
+        sessLifetime:
+            ROLE_FACHADMIN: 5
+            ROLE_BENUTZER: 5
+            IS_AUTHENTICATED_ANONYMOUSLY: 5
